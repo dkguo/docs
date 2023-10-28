@@ -1,0 +1,134 @@
+## Linux 22.04 LTS
+Use 22.04 LTS instead of 20.04 LTS. 20.04 LTS does not have updated Wi-Fi driver.
+```
+sudo apt update
+sudo apt install zsh git curl gcc make pkg-config libglvnd-dev openssh-server barrier gnome-tweaks chrome-gnome-shell
+```
+
+## Network Setup
+### CMU Wi-Fi
+1. Download certificate: https://comodoca.my.salesforce.com/sfc/p/#1N000002Ljih/a/3l000000VZ4M/ie5Sho19m8SLjTZkH_VL8efOD1qyGFt9h5Ju1ddtbKQ
+2. Transfer to Linux machine.
+3. Store the certificate to `/usr/local/share/ca-certificates/`
+4. Connect using Protected EAP (PEAP)
+
+Refer to: https://www.cmu.edu/computing/services/endpoint/network-access/wireless/how-to/connect.html
+
+### Wired Network
+Address: 10.10.0.x
+Netmask: 255.0.0.0
+
+### Barrier
+```
+sudo apt install barrier
+```
+Certificate will show up when typing server IP \
+Switch Ctrl and Super in server settings \
+Add barrier to Startup Applications
+
+### SSH
+```
+sudo apt install openssh-server
+```
+
+### GitHub ssh key
+1. Check existing ssh key [refer to this link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+
+2. Generate new ssh key [refer to this link](
+    https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+    ```
+    ssh-keygen -t ed25519 -C "code@guodk.com"
+    # Hit two enter, you don't need passphrase.
+    ```
+    Add to ssh-agent
+    ```
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519   # change to your key name
+    ```
+3. Add ssh key to GitHub [refer to this link](
+    https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account)
+    ```
+    cat ~/.ssh/id_ed25519.pub
+    ```
+    Copy the output and paste to GitHub. \
+    Add to https://github.com/settings/keys
+
+## Terminal
+### Oh My Zsh
+Install Zsh, Git, and Curl
+```
+sudo apt install zsh git curl
+```
+Install oh-my-zsh
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+Change default shell to zsh. Log out to take effect.
+```
+chsh -s $(which zsh)
+```
+
+Change .zshrc file to Linux Ubuntu Version
+
+Add ~/.oh-my-zsh/themes/guodk.zsh-theme
+
+Install zsh-auto-suggestions
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+### Anaconda
+Follow https://docs.anaconda.com/free/anaconda/install/linux.html
+
+
+## NVIDIA CUDA and Driver
+### Driver
+Go to https://www.nvidia.com/download/index.aspx and download the latest driver. \
+```
+sudo apt install gcc make pkg-config libglvnd-dev
+sudo sh <file>.run
+```
+Reboot
+(It may become black screen after installation. Just reboot and it will be fine.)
+
+### CUDA
+1. Download CUDA Toolkit 11.8 run file\
+2. Follow https://docs.nvidia.com/cuda/cuda-installation-guide-linux/#installation \
+    a. Disable Nouveau https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#runfile-nouveau-ubuntu \
+
+
+Follow https://developer.nvidia.com/cuda-downloads \
+Use deb (local) and install driver following instructions after toolkit is installed. \
+Add cuda path to .zshrc
+
+
+
+
+
+## Apps
+### Variety Wallpaper Changer
+Install newest version from PPA:
+```
+sudo add-apt-repository ppa:variety/stable
+sudo apt update && sudo apt install variety
+```
+### Night Mode Switcher and Gnome Tweaks
+```
+sudo apt install gnome-tweaks chrome-gnome-shell
+```
+Install Night Mode Switcher: https://extensions.gnome.org/extension/2236/night-theme-switcher/ \
+Change GTK Theme, Day variant to Adwaita, Night variant to Adwaita-dark. This will let terminal theme follow dark mode as well.
+
+Refer to: https://itsfoss.com/gnome-shell-extensions/
+
+### PyCharm
+https://www.jetbrains.com/help/pycharm/installation-guide.html#snap-install-tar \
+Install standalone to  `/opt/` \
+To create a desktop entry, from the main menu, click Tools -> Create Desktop Entry
+
+### VS Code
+Download .deb file from https://code.visualstudio.com/download 
+```
+sudo apt install ./<file>.deb
+```
+
