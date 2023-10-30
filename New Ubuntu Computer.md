@@ -18,40 +18,11 @@ Refer to: https://www.cmu.edu/computing/services/endpoint/network-access/wireles
 Address: 10.10.0.x
 Netmask: 255.0.0.0
 
-### Barrier
-```
-sudo apt install barrier
-```
-Certificate will show up when typing server IP \
-Switch Ctrl and Super in server settings \
-Add barrier to Startup Applications
-
 ### SSH
 ```
 sudo apt install openssh-server
 ```
 
-### GitHub ssh key
-1. Check existing ssh key [refer to this link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
-
-2. Generate new ssh key [refer to this link](
-    https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-    ```
-    ssh-keygen -t ed25519 -C "code@guodk.com"
-    # Hit two enter, you don't need passphrase.
-    ```
-    Add to ssh-agent
-    ```
-    eval "$(ssh-agent -s)"
-    ssh-add ~/.ssh/id_ed25519   # change to your key name
-    ```
-3. Add ssh key to GitHub [refer to this link](
-    https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account)
-    ```
-    cat ~/.ssh/id_ed25519.pub
-    ```
-    Copy the output and paste to GitHub. \
-    Add to https://github.com/settings/keys
 
 ## Terminal
 ### Oh My Zsh
@@ -80,6 +51,28 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 ### Anaconda
 Follow https://docs.anaconda.com/free/anaconda/install/linux.html
 
+### GitHub ssh key
+1. Check existing ssh key [refer to this link](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+
+2. Generate new ssh key [refer to this link](
+    https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+    ```
+    ssh-keygen -t ed25519 -C "code@guodk.com"
+    # Hit two enter, you don't need passphrase.
+    ```
+    Add to ssh-agent
+    ```
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519   # change to your key name
+    ```
+3. Add ssh key to GitHub [refer to this link](
+    https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account)
+    ```
+    cat ~/.ssh/id_ed25519.pub
+    ```
+    Copy the output and paste to GitHub. \
+    Add to https://github.com/settings/keys
+
 
 ## NVIDIA CUDA and Driver
 ### Driver
@@ -99,13 +92,29 @@ Reboot
 
 Follow https://developer.nvidia.com/cuda-downloads \
 Use deb (local) and install driver following instructions after toolkit is installed. \
-Add cuda path to .zshrc
-
-
-
+Add cuda path to .zshrc (already included in Linux .zshrc file)
 
 
 ## Apps
+### Barrier
+```
+sudo apt install barrier
+```
+Certificate will show up when typing server IP \
+Switch Ctrl and Super in server settings \
+Add barrier to Startup Applications
+
+### Syncthing
+1. Follow https://apt.syncthing.net/ to install
+    ```
+    sudo curl -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
+    echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+    sudo apt-get update
+    sudo apt-get install syncthing
+    ```
+2. Start syncthing and setup by adding new device
+3. Add `syncthing` to Startup Applications
+
 ### Variety Wallpaper Changer
 Install newest version from PPA:
 ```
