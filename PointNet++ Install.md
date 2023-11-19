@@ -1,0 +1,3 @@
+- Cuda must be install on the system, but only conda
+- Must use same version of cudatoolkit as system's cuda; conda's toolkit doesn't work
+- Follow https://github.com/facebookresearch/votenet/issues/108 to change setup file and `AT_CHECK` to `TORCH_CHECK`

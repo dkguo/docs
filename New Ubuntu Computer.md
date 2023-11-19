@@ -75,24 +75,10 @@ Follow https://docs.anaconda.com/free/anaconda/install/linux.html
 
 
 ## NVIDIA CUDA and Driver
-### Driver
-Go to https://www.nvidia.com/download/index.aspx and download the latest driver. \
-```
-sudo apt install gcc make pkg-config libglvnd-dev
-sudo sh <file>.run
-```
-Reboot
-(It may become black screen after installation. Just reboot and it will be fine.)
-
-### CUDA
-1. Download CUDA Toolkit 11.8 run file\
-2. Follow https://docs.nvidia.com/cuda/cuda-installation-guide-linux/#installation \
-    a. Disable Nouveau https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#runfile-nouveau-ubuntu \
-
-
 Follow https://developer.nvidia.com/cuda-downloads \
 Use deb (local) and install driver following instructions after toolkit is installed. \
 Add cuda path to .zshrc (already included in Linux .zshrc file)
+- Probably cuda 11.8 is better for 4090?
 
 
 ## Apps
