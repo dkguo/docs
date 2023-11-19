@@ -127,3 +127,20 @@ Download .deb file from https://code.visualstudio.com/download
 sudo apt install ./<file>.deb
 ```
 
+### MeshLab
+1. Install FlatPak (https://flatpak.org/setup/Ubuntu)
+    ```
+    sudo apt install flatpak
+    sudo apt install gnome-software-plugin-flatpak
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    ```
+2. Install MeshLab
+    ```
+    flatpak install flathub net.meshlab.MeshLab
+    ```
+3. Restart based on prompt from flatpak so MeshLab can be found in the application menu
+
+### Open3D-viewer
+```
+sudo apt install open3d-gui
+```
