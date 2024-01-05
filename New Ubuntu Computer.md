@@ -119,7 +119,8 @@ Refer to: https://itsfoss.com/gnome-shell-extensions/
 ### PyCharm
 https://www.jetbrains.com/help/pycharm/installation-guide.html#snap-install-tar \
 Install standalone to  `/opt/` \
-To create a desktop entry, from the main menu, click Tools -> Create Desktop Entry
+To create a desktop entry, from the main menu, click Tools -> Create Desktop Entry\
+To give PyCharm access to update itself, run `sudo chmod -R 777 /opt/pycharm-community-*/`
 
 ### VS Code
 Download .deb file from https://code.visualstudio.com/download 
