@@ -1,3 +1,6 @@
+<!---
+Created by Dingkun Guo in 2023. © All rights reserved.
+-->
 
 ## Network Setup
 1. After mounting the robot steadily, here are what you need:
@@ -83,3 +86,6 @@ Notes:
 
 2. Change robot_ip for `launch_gripper`  
 	`launch_gripper.py gripper=franka_hand gripper.executable_cfg.robot_ip=10.10.0.100`
+
+## Contact
+If you have any questions, please contact Dingkun Guo at edu@dkguo.com
