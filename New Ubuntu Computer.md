@@ -145,3 +145,25 @@ sudo apt install ./<file>.deb
 ```
 sudo apt install open3d-gui
 ```
+
+### TimeMachine via SMB
+https://github.com/mbentley/docker-timemachine 
+
+```
+docker run -d --restart=always \
+  --name timemachine \
+  --net=host \
+  -e TM_USERNAME="timemachine" \
+  -e TM_GROUPNAME="timemachine" \
+  -e PASSWORD="timemachine" \
+  -e TM_UID="1000" \
+  -e TM_GID="1000" \
+  -e SET_PERMISSIONS="false" \
+  -e VOLUME_SIZE_LIMIT="0" \
+  -v /path/on/host/to/backup/to/for/timemachine:/opt/timemachine \
+  --tmpfs /run/samba \
+  mbentley/timemachine:smb
+```
+
+#### Mount Hard Drive Automatically
+Go to Disks app -> Select Hard Drive -> Edit Mount Options -> Turn off User Session Defaults -> Turn on Mount at system startup
