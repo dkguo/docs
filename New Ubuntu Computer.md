@@ -2,6 +2,7 @@
 Use 22.04 LTS instead of 20.04 LTS. 20.04 LTS does not have updated Wi-Fi driver.
 ```
 sudo apt update
+sudo apt upgrade
 sudo apt install zsh git curl gcc make pkg-config libglvnd-dev openssh-server barrier gnome-tweaks chrome-gnome-shell
 ```
 
