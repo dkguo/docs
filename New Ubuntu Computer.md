@@ -7,16 +7,8 @@ sudo apt install zsh git curl gcc make pkg-config libglvnd-dev openssh-server ba
 ```
 
 ## Network Setup
-### CMU Wi-Fi
-1. Download certificate: https://comodoca.my.salesforce.com/sfc/p/#1N000002Ljih/a/3l000000VZ4M/ie5Sho19m8SLjTZkH_VL8efOD1qyGFt9h5Ju1ddtbKQ
-2. Transfer to Linux machine.
-3. Store the certificate to `/usr/local/share/ca-certificates/`
-4. Connect using Protected EAP (PEAP)
-
-Refer to: https://www.cmu.edu/computing/services/endpoint/network-access/wireless/how-to/connect.html
-
 ### Wired Network
-Address: 10.10.0.x
+Address: 10.10.0.X \
 Netmask: 255.0.0.0
 
 ### SSH
@@ -35,7 +27,7 @@ Install oh-my-zsh
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-Change default shell to zsh. Log out to take effect.
+Change default shell to zsh. **Log out** to take effect.
 ```
 chsh -s $(which zsh)
 ```
@@ -76,10 +68,16 @@ Follow https://docs.anaconda.com/free/anaconda/install/linux.html
 
 
 ## NVIDIA CUDA and Driver
+### NVIDIA Driver
+Go to Software & Updates -> Additional Drivers -> Select NVIDIA driver
+
+### CUDA in root
 Follow https://developer.nvidia.com/cuda-downloads \
 Use deb (local) and install driver following instructions after toolkit is installed. \
 Add cuda path to .zshrc (already included in Linux .zshrc file)
-- Probably cuda 11.8 is better for 4090?
+
+### CUDA by Conda
+Just install `cudatoolkit` in conda environment
 
 
 ## Apps
