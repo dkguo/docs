@@ -69,6 +69,12 @@ Follow https://docs.anaconda.com/free/anaconda/install/linux.html
 
 ## NVIDIA CUDA and Driver
 ### NVIDIA Driver
+```
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt update
+sudo apt install nvidia-driver-XXX
+```
+OR\
 Go to Software & Updates -> Additional Drivers -> Select NVIDIA driver
 
 ### CUDA in root
