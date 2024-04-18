@@ -66,6 +66,24 @@ Follow https://docs.anaconda.com/free/anaconda/install/linux.html
     Copy the output and paste to GitHub. \
     Add to https://github.com/settings/keys
 
+#### Using Multiple Git Accounts and SSH Keys
+```
+nano ~/.ssh/config
+```
+Add the following:
+```
+Host github.com-2
+  HostName github.com
+  User git
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_<second_id>
+```
+When cloning a repository, use the following:
+```
+git clone git@github.com-2:{link}.git
+```
+
 
 ## NVIDIA CUDA and Driver
 ### NVIDIA Driver
